@@ -9,15 +9,10 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "support@adityaxinnovations.com",
-    href: "mailto:support@adityaxinnovations.com",
+    value: "info@adityaxinnovations.com",
+    href: "mailto:info@adityaxinnovations.com",
   },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+91 98765 43210",
-    href: "tel:+919876543210",
-  },
+  
   {
     icon: MapPin,
     label: "Location",
