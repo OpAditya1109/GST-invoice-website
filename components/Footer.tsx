@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Zap, ArrowRight, Heart } from "lucide-react";
 

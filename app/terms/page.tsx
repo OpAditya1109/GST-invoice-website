@@ -1,6 +1,8 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { ArrowLeft, FileText } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const sections = [
   {
@@ -96,7 +98,7 @@ const TermsAndConditions = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-[120px]" />
         <div className="relative max-w-4xl mx-auto px-6 pt-20 pb-16">
           <Link
-            to="/"
+            href="/"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8 group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
