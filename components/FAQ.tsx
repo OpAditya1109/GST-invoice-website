@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 const faqs = [
   {
     q: "Is GST ITC free to use?",
-    a: "Yes! We offer a generous free-forever plan that includes up to 50 invoice scans per month, basic GST calculations, and monthly reports. Upgrade to Pro for unlimited scans and advanced features.",
+    a: "Yes! We offer a generous free-forever plan that includes up to 5 invoice scans per month, basic GST calculations, and monthly reports. Upgrade to Pro for unlimited scans and advanced features.",
   },
   {
     q: "How accurate is the OCR invoice scanning?",
