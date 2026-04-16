@@ -26,29 +26,29 @@ const Contact = () => {
   const [success, setSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSuccess(false);
-    setErrorMsg("");
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+  setSuccess(false);
+  setErrorMsg("");
 
-    try {
-      await emailjs.sendForm(
-        "service_5y4dhhn",
-        "template_bmfn757",
-        e.target,
-        "n2ggw6RssaoG4P3SzSrDe"
-      );
+  try {
+    await emailjs.sendForm(
+      "service_5y4dhhn",
+      "template_bmfn757",
+      e.currentTarget,
+      "n2ggw6RssaoG4P3SzSrDe"
+    );
 
-      setSuccess(true);
-      e.target.reset();
-    } catch (error) {
-      console.error(error);
-      setErrorMsg("Failed to send message. Please try again.");
-    }
+    setSuccess(true);
+    e.currentTarget.reset();
+  } catch (error) {
+    console.error(error);
+    setErrorMsg("Failed to send message. Please try again.");
+  }
 
-    setIsSubmitting(false);
-  };
+  setIsSubmitting(false);
+};
 
   return (
     <div className="min-h-screen bg-background">
