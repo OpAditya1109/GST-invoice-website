@@ -36,7 +36,7 @@ const Footer = () => {
           <motion.a
             whileHover={{ scale: 1.04, boxShadow: "0 0 80px hsl(163 100% 44% / 0.3), 0 0 200px hsl(163 100% 44% / 0.1)" }}
             whileTap={{ scale: 0.97 }}
-            href="#"
+            href="/contact"
             className="group inline-flex items-center gap-2.5 px-10 py-5 rounded-2xl bg-primary text-primary-foreground font-bold text-lg glow-intense"
           >
             Get Started — It's Free

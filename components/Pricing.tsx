@@ -166,7 +166,7 @@ const Pricing = () => {
                 <motion.a
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  href="#"
+                  href="/contact"
                   className={`w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl font-semibold text-sm transition-all duration-300 ${
                     tier.highlighted
                       ? "bg-primary text-primary-foreground glow-md hover:brightness-110"
