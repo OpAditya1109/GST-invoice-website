@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, Mail, MapPin, Phone, Send } from "lucide-react";
+import { ArrowLeft, Mail, MapPin, Send } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import emailjs from "emailjs-com";
 
 const contactInfo = [
   {
@@ -12,7 +13,6 @@ const contactInfo = [
     value: "info@adityaxinnovations.com",
     href: "mailto:info@adityaxinnovations.com",
   },
-  
   {
     icon: MapPin,
     label: "Location",
@@ -23,16 +23,31 @@ const contactInfo = [
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSuccess(false);
+    setErrorMsg("");
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      alert("Message sent! We'll get back to you soon.");
+    try {
+      await emailjs.sendForm(
+        "service_5y4dhhn",
+        "template_bmfn757",
+        e.target,
+        "n2ggw6RssaoG4P3SzSrDe"
+      );
+
+      setSuccess(true);
       e.target.reset();
-    }, 1000);
+    } catch (error) {
+      console.error(error);
+      setErrorMsg("Failed to send message. Please try again.");
+    }
+
+    setIsSubmitting(false);
   };
 
   return (
@@ -56,37 +71,63 @@ const Contact = () => {
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
+
           <input
+            name="name"
             required
             placeholder="Name"
             className="w-full p-3 rounded bg-gray-900 border border-gray-700"
           />
+
           <input
+            name="email"
             required
             type="email"
             placeholder="Email"
             className="w-full p-3 rounded bg-gray-900 border border-gray-700"
           />
+
           <input
+            name="subject"
             required
             placeholder="Subject"
             className="w-full p-3 rounded bg-gray-900 border border-gray-700"
           />
+
           <textarea
+            name="message"
             required
             rows={5}
             placeholder="Message"
             className="w-full p-3 rounded bg-gray-900 border border-gray-700"
           />
 
+          {/* Success Message */}
+          {success && (
+            <p className="text-green-400 text-sm">
+              ✅ Message sent successfully!
+            </p>
+          )}
+
+          {/* Error Message */}
+          {errorMsg && (
+            <p className="text-red-400 text-sm">
+              ❌ {errorMsg}
+            </p>
+          )}
+
           <button
             type="submit"
             disabled={isSubmitting}
-            className="bg-green-500 px-6 py-3 rounded text-black flex items-center gap-2"
+            className="bg-green-500 px-6 py-3 rounded text-black flex items-center gap-2 justify-center w-full"
           >
-            {isSubmitting ? "Sending..." : "Send"}
+            {isSubmitting ? "Sending..." : "Send Message"}
             <Send className="w-4 h-4" />
           </button>
+
+          <p className="text-xs text-muted-foreground text-center">
+            We usually reply within 24 hours
+          </p>
         </form>
 
         {/* Contact Info */}
