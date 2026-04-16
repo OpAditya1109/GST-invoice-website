@@ -68,12 +68,7 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href="#"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors px-4 py-2"
-            >
-              Log in
-            </a>
+          
             <motion.a
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
