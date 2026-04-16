@@ -28,6 +28,9 @@ const Contact = () => {
 
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
+
+  const form = e.currentTarget;
+
   setIsSubmitting(true);
   setSuccess(false);
   setErrorMsg("");
@@ -36,14 +39,15 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     await emailjs.sendForm(
       "service_5y4dhhn",
       "template_bmfn757",
-      e.currentTarget,
-      "zpqvZfJO6HCNbxoSP"
+      form,
+      "n2ggw6RssaoG4P3SzSrDe"
     );
 
     setSuccess(true);
-    e.currentTarget.reset();
+    form.reset();
   } catch (error) {
     console.error(error);
+    setSuccess(false);
     setErrorMsg("Failed to send message. Please try again.");
   }
 
