@@ -18,11 +18,11 @@ const tiers = [
   },
   {
     name: "Starter",
-    price: "₹999",
+    price: "₹1499",
     period: "/month",
     description: "Best for small businesses getting started.",
     features: [
-      "100 invoice scans/month",
+      "50 invoice scans/month",
       "Full GST report export",
       "6 months invoice history",
       "Email support",
@@ -33,11 +33,11 @@ const tiers = [
   },
   {
     name: "Pro",
-    price: "₹2999",
+    price: "₹3999",
     period: "/month",
     description: "For growing businesses & CAs needing advanced tools.",
     features: [
-      "500 invoice scans/month",
+      "250 invoice scans/month",
       "Advanced analytics",
       "Full invoice history",
       "Priority support",
